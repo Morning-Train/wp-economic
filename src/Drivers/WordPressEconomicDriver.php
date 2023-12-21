@@ -2,14 +2,15 @@
 
 namespace MorningTrain\WpEconomic\Drivers;
 
+use Exception;
 use MorningTrain\Economic\Classes\EconomicResponse;
 use MorningTrain\Economic\Interfaces\EconomicDriver;
-use Exception;
 use MorningTrain\Economic\Services\EconomicLoggerService;
 
 class WordPressEconomicDriver implements EconomicDriver
 {
     protected string $appSecretToken;
+
     protected string $agreementGrantToken;
 
     public function __construct(string $appSecretToken, string $agreementGrantToken)
@@ -24,19 +25,17 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $response = wp_remote_get($url, [
             'user-agent' => get_bloginfo(),
-            'headers' => $this->getHeaders()
+            'headers' => $this->getHeaders(),
         ]);
 
-        if(is_wp_error($response)) {
+        if (is_wp_error($response)) {
             EconomicLoggerService::critical($response->get_error_message(), [
                 'url' => $url,
-                'query_args' => $queryArgs
+                'query_args' => $queryArgs,
             ]);
 
             throw new Exception($response->get_error_message());
         }
-
-
 
         return new EconomicResponse(wp_remote_retrieve_response_code($response), json_decode(wp_remote_retrieve_body($response), true));
     }
@@ -49,10 +48,10 @@ class WordPressEconomicDriver implements EconomicDriver
             'body' => json_encode($body),
         ]);
 
-        if(is_wp_error($response)) {
+        if (is_wp_error($response)) {
             EconomicLoggerService::critical($response->get_error_message(), [
                 'url' => $url,
-                'body' => $body
+                'body' => $body,
             ]);
 
             throw new Exception($response->get_error_message());
@@ -68,13 +67,13 @@ class WordPressEconomicDriver implements EconomicDriver
             'user-agent' => get_bloginfo(),
             'headers' => $this->getHeaders(),
             'body' => json_encode($body),
-            'method' => 'PUT'
+            'method' => 'PUT',
         ]);
 
-        if(is_wp_error($response)) {
+        if (is_wp_error($response)) {
             EconomicLoggerService::critical($response->get_error_message(), [
                 'url' => $url,
-                'body' => $body
+                'body' => $body,
             ]);
 
             throw new Exception($response->get_error_message());
@@ -89,12 +88,12 @@ class WordPressEconomicDriver implements EconomicDriver
         $response = wp_remote_request($url, [
             'user-agent' => get_bloginfo(),
             'headers' => static::getHeaders(),
-            'method' => 'DELETE'
+            'method' => 'DELETE',
         ]);
 
-        if(is_wp_error($response)) {
+        if (is_wp_error($response)) {
             EconomicLoggerService::critical($response->get_error_message(), [
-                'url' => $url
+                'url' => $url,
             ]);
 
             throw new Exception($response->get_error_message());
@@ -110,12 +109,12 @@ class WordPressEconomicDriver implements EconomicDriver
             'user-agent' => get_bloginfo(),
             'headers' => $this->getHeaders(),
             'body' => json_encode($body),
-            'method' => 'PATCH'
+            'method' => 'PATCH',
         ]);
 
-        if(is_wp_error($response)) {
+        if (is_wp_error($response)) {
             EconomicLoggerService::critical($response->get_error_message(), [
-                'url' => $url
+                'url' => $url,
             ]);
 
             throw new Exception($response->get_error_message());
@@ -130,8 +129,7 @@ class WordPressEconomicDriver implements EconomicDriver
         return [
             'X-AppSecretToken' => $this->appSecretToken,
             'X-AgreementGrantToken' => $this->agreementGrantToken,
-            'Content-Type' => 'application/json'
+            'Content-Type' => 'application/json',
         ];
     }
-
 }

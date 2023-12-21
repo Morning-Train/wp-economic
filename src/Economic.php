@@ -9,12 +9,13 @@ use Psr\Log\LoggerInterface;
 
 class Economic
 {
-    public static function setup(string $appSecretToken, string $agreementGrantToken) {
+    public static function setup(string $appSecretToken, string $agreementGrantToken)
+    {
         EconomicApiService::setDriver(new WordPressEconomicDriver($appSecretToken, $agreementGrantToken));
     }
 
-    public static function useLogger(LoggerInterface $logger) {
+    public static function useLogger(LoggerInterface $logger)
+    {
         EconomicLoggerService::registerLogger($logger);
     }
-
 }
