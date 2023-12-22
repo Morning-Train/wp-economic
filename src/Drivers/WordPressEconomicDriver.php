@@ -41,10 +41,9 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $responseCode = wp_remote_retrieve_response_code($response);
 
-        if(! $this->isSuccesful($responseCode)) {
+        if (! $this->isSuccesful($responseCode)) {
             throw new Exception($response['response']['message']);
         }
-
 
         return new EconomicResponse($responseCode, json_decode(wp_remote_retrieve_body($response), true));
     }
@@ -52,7 +51,7 @@ class WordPressEconomicDriver implements EconomicDriver
     public function post(string $url, array $body = []): EconomicResponse
     {
         $response = wp_remote_post($url, [
-            'user-agent' =>sanitize_title(get_bloginfo()),
+            'user-agent' => sanitize_title(get_bloginfo()),
             'headers' => $this->getHeaders(),
             'body' => json_encode($body),
         ]);
@@ -68,7 +67,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $responseCode = wp_remote_retrieve_response_code($response);
 
-        if(! $this->isSuccesful($responseCode)) {
+        if (! $this->isSuccesful($responseCode)) {
             throw new Exception($response['response']['message']);
         }
 
@@ -96,7 +95,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $responseCode = wp_remote_retrieve_response_code($response);
 
-        if(! $this->isSuccesful($responseCode)) {
+        if (! $this->isSuccesful($responseCode)) {
             throw new Exception($response['response']['message']);
         }
 
@@ -122,7 +121,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $responseCode = wp_remote_retrieve_response_code($response);
 
-        if(! $this->isSuccesful($responseCode)) {
+        if (! $this->isSuccesful($responseCode)) {
             throw new Exception($response['response']['message']);
         }
 
@@ -130,7 +129,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
     }
 
-    public function patch(string $url,  array $body = []): EconomicResponse
+    public function patch(string $url, array $body = []): EconomicResponse
     {
         $response = wp_remote_request($url, [
             'user-agent' => get_bloginfo(),
@@ -149,7 +148,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $responseCode = wp_remote_retrieve_response_code($response);
 
-        if(! $this->isSuccesful($responseCode)) {
+        if (! $this->isSuccesful($responseCode)) {
             throw new Exception($response['response']['message']);
         }
 
@@ -168,6 +167,6 @@ class WordPressEconomicDriver implements EconomicDriver
 
     private function isSuccesful(int|string $responseCode): bool
     {
-        return 200 <= $responseCode && $responseCode < 300;
+        return $responseCode >= 200 && $responseCode < 300;
     }
 }
