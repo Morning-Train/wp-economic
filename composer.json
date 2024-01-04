@@ -1,13 +1,19 @@
 {
-    "name": "morningtrain/wp-e-conomic",
-    "description": "This is my package morning-train-wp-e-conomic",
+    "name": "morningtrain/wp-economic",
+    "description": "PHP SDK for e-conomic with WordPress support",
     "keywords": [
-        "Morningtrain",
-        "morning-trian-wp-e-conomic"
+        "morningtrain",
+        "e-conomic",
+        "wordpress"
     ],
-    "homepage": "https://github.com/morningtrain/morningtrain/wp-e-conomic",
+    "homepage": "https://github.com/Morning-Train/wp-economic",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Martin Schadegg Brønniche",
+            "email": "ms@morningtrain.dk",
+            "role": "Developer"
+        },
         {
             "name": "Lars Rasmussen",
             "email": "laras@morningtrain.dk",
@@ -16,7 +22,7 @@
     ],
     "require": {
         "php": "^8.1",
-        "morning-train/e-conomic": "dev-main"
+        "morningtrain/economic": "^0.2"
     },
     "require-dev": {
         "pestphp/pest": "^2.15",
@@ -25,17 +31,17 @@
     },
     "autoload": {
         "psr-4": {
-            "MorningTrain\\WpEconomic\\": "src/"
+            "Morningtrain\\WpEconomic\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MorningTrain\\WpEconomic\\Tests\\": "tests"
+            "Morningtrain\\WpEconomic\\Tests\\": "tests"
         }
     },
     "scripts": {
         "test": "vendor/bin/pest",
-            "test-coverage": "vendor/bin/pest --coverage",
+        "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint"
     },
     "config": {
