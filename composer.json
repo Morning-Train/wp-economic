@@ -1,11 +1,11 @@
 {
-    "name": "morningtrain/morning-train-wp-e-conomic",
+    "name": "morningtrain/wp-e-conomic",
     "description": "This is my package morning-train-wp-e-conomic",
     "keywords": [
         "Morningtrain",
         "morning-trian-wp-e-conomic"
     ],
-    "homepage": "https://github.com/morningtrain/morning-train-wp-e-conomic",
+    "homepage": "https://github.com/morningtrain/morningtrain/wp-e-conomic",
     "license": "MIT",
     "authors": [
         {
