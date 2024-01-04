@@ -1,11 +1,11 @@
 <?php
 
-namespace MorningTrain\WpEconomic\Drivers;
+namespace Morningtrain\WpEconomic\Drivers;
 
 use Exception;
-use MorningTrain\Economic\Classes\EconomicResponse;
-use MorningTrain\Economic\Interfaces\EconomicDriver;
-use MorningTrain\Economic\Services\EconomicLoggerService;
+use Morningtrain\Economic\Classes\EconomicResponse;
+use Morningtrain\Economic\Interfaces\EconomicDriver;
+use Morningtrain\Economic\Services\EconomicLoggerService;
 
 class WordPressEconomicDriver implements EconomicDriver
 {

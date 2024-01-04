@@ -1,10 +1,10 @@
 <?php
 
-namespace MorningTrain\WpEconomic;
+namespace Morningtrain\WpEconomic;
 
-use MorningTrain\Economic\Services\EconomicApiService;
-use MorningTrain\Economic\Services\EconomicLoggerService;
-use MorningTrain\WpEconomic\Drivers\WordPressEconomicDriver;
+use Morningtrain\Economic\Services\EconomicApiService;
+use Morningtrain\Economic\Services\EconomicLoggerService;
+use Morningtrain\WpEconomic\Drivers\WordPressEconomicDriver;
 use Psr\Log\LoggerInterface;
 
 class Economic
