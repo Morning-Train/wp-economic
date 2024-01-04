@@ -28,8 +28,6 @@ class WordPressEconomicDriver implements EconomicDriver
             'headers' => $this->getHeaders(),
         ]);
 
-        ray(sanitize_title(get_bloginfo()));
-
         if (is_wp_error($response)) {
             EconomicLoggerService::critical($response->get_error_message(), [
                 'url' => $url,
