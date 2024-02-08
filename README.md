@@ -1,8 +1,8 @@
 # PHP SDK for e-conomic with WordPress support
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/morningtrain/morning-trian-wp-e-conomic.svg?style=flat-square)](https://packagist.org/packages/morningtrain/morning-trian-wp-e-conomic)
-[![Tests](https://img.shields.io/github/actions/workflow/status/morningtrain/morning-trian-wp-e-conomic/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/morningtrain/morning-trian-wp-e-conomic/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/morningtrain/morning-trian-wp-e-conomic.svg?style=flat-square)](https://packagist.org/packages/morningtrain/morning-trian-wp-e-conomic)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/morningtrain/wp-economic.svg?style=flat-square)](https://packagist.org/packages/morningtrain/wp-economic)
+[![Tests](https://img.shields.io/github/actions/workflow/status/Morning-train/wp-economic/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/Morning-train/wp-economic/actions/workflows/run-tests.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/morningtrain/wp-economic.svg?style=flat-square)](https://packagist.org/packages/morningtrain/wp-economic)
 
 This creates a wrapper for the e-conomic REST API using [morningtrain/economic package](https://github.com/Morning-Train/economic), and makes it easy to use in a WordPress application.
 
