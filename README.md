@@ -17,6 +17,8 @@ composer require morningtrain/wp-economic
 ## Usage
 
 ```php
+    use MorningTrain\WordPress\Economic\Economic;
+
     Economic::setup(
     ECONOMIC_APP_SECRET_TOKEN,
     ECONOMIC_GRANT_TOKEN);
