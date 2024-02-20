@@ -2,6 +2,14 @@
 
 All notable changes to `morning-trian/wp-e-conomic` will be documented in this file.
 
+## v0.4.0 - 2024-02-20
+
+* Updated economic package
+
+NOTE: it has breaking changes!
+
+Set version to match economic package for no confusion.
+
 ## v0.2.0 - 2024-02-08
 
 ### What's Changed
