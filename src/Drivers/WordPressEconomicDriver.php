@@ -40,6 +40,12 @@ class WordPressEconomicDriver implements EconomicDriver
         $responseCode = wp_remote_retrieve_response_code($response);
 
         if (! $this->isSuccessful($responseCode)) {
+            $body = json_decode(wp_remote_retrieve_body($response), true);
+
+            if(isset($body['message'])) {
+                throw new Exception($body['message']);
+            }
+
             throw new Exception($response['response']['message']);
         }
 
@@ -66,6 +72,12 @@ class WordPressEconomicDriver implements EconomicDriver
         $responseCode = wp_remote_retrieve_response_code($response);
 
         if (! $this->isSuccessful($responseCode)) {
+            $body = json_decode(wp_remote_retrieve_body($response), true);
+
+            if(isset($body['message'])) {
+                throw new Exception($body['message']);
+            }
+
             throw new Exception($response['response']['message']);
         }
 
@@ -94,6 +106,12 @@ class WordPressEconomicDriver implements EconomicDriver
         $responseCode = wp_remote_retrieve_response_code($response);
 
         if (! $this->isSuccessful($responseCode)) {
+            $body = json_decode(wp_remote_retrieve_body($response), true);
+
+            if(isset($body['message'])) {
+                throw new Exception($body['message']);
+            }
+
             throw new Exception($response['response']['message']);
         }
 
@@ -120,6 +138,12 @@ class WordPressEconomicDriver implements EconomicDriver
         $responseCode = wp_remote_retrieve_response_code($response);
 
         if (! $this->isSuccessful($responseCode)) {
+            $body = json_decode(wp_remote_retrieve_body($response), true);
+
+            if(isset($body['message'])) {
+                throw new Exception($body['message']);
+            }
+
             throw new Exception($response['response']['message']);
         }
 
