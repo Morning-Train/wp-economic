@@ -42,7 +42,7 @@ class WordPressEconomicDriver implements EconomicDriver
         if (! $this->isSuccessful($responseCode)) {
             $body = json_decode(wp_remote_retrieve_body($response), true);
 
-            if(isset($body['message'])) {
+            if (isset($body['message'])) {
                 throw new Exception($body['message']);
             }
 
@@ -74,7 +74,7 @@ class WordPressEconomicDriver implements EconomicDriver
         if (! $this->isSuccessful($responseCode)) {
             $body = json_decode(wp_remote_retrieve_body($response), true);
 
-            if(isset($body['message'])) {
+            if (isset($body['message'])) {
                 throw new Exception($body['message']);
             }
 
@@ -108,7 +108,7 @@ class WordPressEconomicDriver implements EconomicDriver
         if (! $this->isSuccessful($responseCode)) {
             $body = json_decode(wp_remote_retrieve_body($response), true);
 
-            if(isset($body['message'])) {
+            if (isset($body['message'])) {
                 throw new Exception($body['message']);
             }
 
@@ -140,7 +140,7 @@ class WordPressEconomicDriver implements EconomicDriver
         if (! $this->isSuccessful($responseCode)) {
             $body = json_decode(wp_remote_retrieve_body($response), true);
 
-            if(isset($body['message'])) {
+            if (isset($body['message'])) {
                 throw new Exception($body['message']);
             }
 
