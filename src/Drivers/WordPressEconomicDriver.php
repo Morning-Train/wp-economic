@@ -39,7 +39,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $responseCode = wp_remote_retrieve_response_code($response);
 
-        if (! $this->isSuccesful($responseCode)) {
+        if (! $this->isSuccessful($responseCode)) {
             throw new Exception($response['response']['message']);
         }
 
@@ -65,7 +65,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $responseCode = wp_remote_retrieve_response_code($response);
 
-        if (! $this->isSuccesful($responseCode)) {
+        if (! $this->isSuccessful($responseCode)) {
             throw new Exception($response['response']['message']);
         }
 
@@ -93,7 +93,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $responseCode = wp_remote_retrieve_response_code($response);
 
-        if (! $this->isSuccesful($responseCode)) {
+        if (! $this->isSuccessful($responseCode)) {
             throw new Exception($response['response']['message']);
         }
 
@@ -119,7 +119,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $responseCode = wp_remote_retrieve_response_code($response);
 
-        if (! $this->isSuccesful($responseCode)) {
+        if (! $this->isSuccessful($responseCode)) {
             throw new Exception($response['response']['message']);
         }
 
@@ -146,7 +146,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $responseCode = wp_remote_retrieve_response_code($response);
 
-        if (! $this->isSuccesful($responseCode)) {
+        if (! $this->isSuccessful($responseCode)) {
             throw new Exception($response['response']['message']);
         }
 
@@ -163,7 +163,7 @@ class WordPressEconomicDriver implements EconomicDriver
         ];
     }
 
-    private function isSuccesful(int|string $responseCode): bool
+    private function isSuccessful(int|string $responseCode): bool
     {
         return $responseCode >= 200 && $responseCode < 300;
     }
