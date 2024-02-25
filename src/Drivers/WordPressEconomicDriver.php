@@ -191,6 +191,6 @@ class WordPressEconomicDriver implements EconomicDriver
 
     private function isSuccessful(int|string $responseCode): bool
     {
-        return $responseCode >= 200 && $responseCode < 300;
+        return ($responseCode >= 200 && $responseCode < 300) || $responseCode === 404; // We consider 404 as a successful response, since it just mean that the resource not exists so we can return null;
     }
 }
