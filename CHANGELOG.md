@@ -2,6 +2,12 @@
 
 All notable changes to `morning-trian/wp-e-conomic` will be documented in this file.
 
+## v0.5.0 - 2024-02-25
+
+* Update economic package
+
+NOTE breaking changes: Currency in Invoice Resource has changed from string to Currency Resource
+
 ## v0.4.0 - 2024-02-20
 
 * Updated economic package
