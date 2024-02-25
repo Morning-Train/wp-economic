@@ -21,7 +21,9 @@ class WordPressEconomicDriver implements EconomicDriver
 
     public function get(string $url, array $queryArgs = []): EconomicResponse
     {
-        $url = urlencode(add_query_arg($queryArgs, $url));
+        $queryArgs = array_map('urlencode', $queryArgs);
+
+        $url = add_query_arg($queryArgs, $url);
 
         $response = wp_remote_get($url, [
             'user-agent' => sanitize_title(get_bloginfo()),
