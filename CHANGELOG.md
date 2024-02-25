@@ -2,6 +2,14 @@
 
 All notable changes to `morning-trian/wp-e-conomic` will be documented in this file.
 
+## v0.5.1 - 2024-02-25
+
+### What's Changed
+
+* Sovled driver bugs by @mschadegg in https://github.com/Morning-Train/wp-economic/pull/7
+
+**Full Changelog**: https://github.com/Morning-Train/wp-economic/compare/v0.5.0...v0.5.1
+
 ## v0.5.0 - 2024-02-25
 
 * Update economic package
