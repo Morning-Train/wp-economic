@@ -42,6 +42,7 @@ class WordPressEconomicDriver implements EconomicDriver
         $responseCode = wp_remote_retrieve_response_code($response);
 
         if (! $this->isSuccessful($responseCode)) {
+
             $body = json_decode(wp_remote_retrieve_body($response), true);
 
             if (isset($body['message'])) {
@@ -51,7 +52,7 @@ class WordPressEconomicDriver implements EconomicDriver
             throw new Exception($response['response']['message']);
         }
 
-        return new EconomicResponse($responseCode, json_decode(wp_remote_retrieve_body($response), true));
+        return new EconomicResponse($responseCode, $this->prepareResponseBody($response));
     }
 
     public function post(string $url, array $body = []): EconomicResponse
@@ -83,7 +84,7 @@ class WordPressEconomicDriver implements EconomicDriver
             throw new Exception($response['response']['message']);
         }
 
-        return new EconomicResponse(wp_remote_retrieve_response_code($response), json_decode(wp_remote_retrieve_body($response), true));
+        return new EconomicResponse(wp_remote_retrieve_response_code($response), $this->prepareResponseBody($response));
 
     }
 
@@ -117,7 +118,7 @@ class WordPressEconomicDriver implements EconomicDriver
             throw new Exception($response['response']['message']);
         }
 
-        return new EconomicResponse(wp_remote_retrieve_response_code($response), json_decode(wp_remote_retrieve_body($response), true));
+        return new EconomicResponse(wp_remote_retrieve_response_code($response), $this->prepareResponseBody($response));
 
     }
 
@@ -149,7 +150,7 @@ class WordPressEconomicDriver implements EconomicDriver
             throw new Exception($response['response']['message']);
         }
 
-        return new EconomicResponse(wp_remote_retrieve_response_code($response), json_decode(wp_remote_retrieve_body($response), true) ?? []);
+        return new EconomicResponse(wp_remote_retrieve_response_code($response), $this->prepareResponseBody($response) ?? []);
 
     }
 
@@ -176,7 +177,7 @@ class WordPressEconomicDriver implements EconomicDriver
             throw new Exception($response['response']['message']);
         }
 
-        return new EconomicResponse(wp_remote_retrieve_response_code($response), json_decode(wp_remote_retrieve_body($response), true) ?? []);
+        return new EconomicResponse(wp_remote_retrieve_response_code($response),$this->prepareResponseBody($response) ?? []);
 
     }
 
@@ -192,5 +193,23 @@ class WordPressEconomicDriver implements EconomicDriver
     private function isSuccessful(int|string $responseCode): bool
     {
         return ($responseCode >= 200 && $responseCode < 300) || $responseCode === 404; // We consider 404 as a successful response, since it just mean that the resource not exists so we can return null;
+    }
+
+    private function prepareResponseBody($response): array
+    {
+        $contentType = wp_remote_retrieve_header($response, 'content-type');
+
+        if($contentType === 'application/pdf') {
+
+            return $response['body'];
+        }
+
+        $body = json_decode(wp_remote_retrieve_body($response), true);
+
+        if (isset($body['message'])) {
+            throw new Exception($body['message']);
+        }
+
+        return $body;
     }
 }
