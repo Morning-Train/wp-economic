@@ -177,7 +177,7 @@ class WordPressEconomicDriver implements EconomicDriver
             throw new Exception($response['response']['message']);
         }
 
-        return new EconomicResponse(wp_remote_retrieve_response_code($response),$this->prepareResponseBody($response) ?? []);
+        return new EconomicResponse(wp_remote_retrieve_response_code($response), $this->prepareResponseBody($response) ?? []);
 
     }
 
@@ -199,7 +199,7 @@ class WordPressEconomicDriver implements EconomicDriver
     {
         $contentType = wp_remote_retrieve_header($response, 'content-type');
 
-        if($contentType === 'application/pdf') {
+        if ($contentType === 'application/pdf') {
 
             return $response['body'];
         }
