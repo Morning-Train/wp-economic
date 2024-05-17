@@ -2,6 +2,19 @@
 
 All notable changes to `morning-trian/wp-e-conomic` will be documented in this file.
 
+## v0.7.1 - 2024-05-17
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot in https://github.com/Morning-Train/wp-economic/pull/10
+* Hotfix/economic response data by @matbaek in https://github.com/Morning-Train/wp-economic/pull/12
+
+### New Contributors
+
+* @matbaek made their first contribution in https://github.com/Morning-Train/wp-economic/pull/12
+
+**Full Changelog**: https://github.com/Morning-Train/wp-economic/compare/v0.7.0...v0.7.1
+
 ## v0.7.0 - 2024-02-29
 
 ### What's Changed
