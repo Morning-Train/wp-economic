@@ -9,7 +9,7 @@ class ExceptionWithData extends Exception
 {
     protected array $extraData;
 
-    public function __construct(string $message = "", int $code = 0, ?Throwable $previous = null, array $extraData = [])
+    public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null, array $extraData = [])
     {
         parent::__construct($message, $code, $previous);
 
@@ -22,13 +22,13 @@ class ExceptionWithData extends Exception
 
         foreach ($this->extraData as $key => $value) {
             if (is_array($value)) {
-                $parts[] = '<strong>' . ucfirst($key) . '</strong>:' . PHP_EOL . $this->arrayToString($value);
+                $parts[] = '<strong>'.ucfirst($key).'</strong>:'.PHP_EOL.$this->arrayToString($value);
 
                 continue;
 
             }
 
-            $parts[] = '<strong>' . ucfirst($key) . '</strong>:' . PHP_EOL . $value;
+            $parts[] = '<strong>'.ucfirst($key).'</strong>:'.PHP_EOL.$value;
         }
 
         return implode(PHP_EOL, $parts);
@@ -46,12 +46,12 @@ class ExceptionWithData extends Exception
             }
 
             if (is_numeric($key)) {
-                $parts[] = str_repeat(' ', $indent) . '- ' . $value;
+                $parts[] = str_repeat(' ', $indent).'- '.$value;
 
                 continue;
             }
 
-            $parts[] = str_repeat(' ', $indent) . ucfirst($key) . '- ' . ": $value";
+            $parts[] = str_repeat(' ', $indent).ucfirst($key).'- '.": $value";
         }
 
         return implode(PHP_EOL, $parts);
