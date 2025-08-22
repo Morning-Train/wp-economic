@@ -58,11 +58,18 @@ class WordPressEconomicDriver implements EconomicDriver
         return new EconomicResponse($responseCode, $this->prepareResponseBody($response));
     }
 
-    public function post(string $url, array $body = []): EconomicResponse
+    public function post(string $url, array $body = [], ?string $idempotencyKey = null): EconomicResponse
     {
+
+        $headers = $this->getHeaders();
+
+        if(!empty($idempotencyKey)) {
+            $headers['Idempotency-Key'] = $idempotencyKey;
+        }
+
         $response = wp_remote_post($url, [
             'user-agent' => sanitize_title(get_bloginfo()),
-            'headers' => $this->getHeaders(),
+            'headers' => $headers,
             'body' => json_encode($body),
         ]);
 
@@ -94,11 +101,18 @@ class WordPressEconomicDriver implements EconomicDriver
 
     }
 
-    public function put(string $url, array $body = []): EconomicResponse
+    public function put(string $url, array $body = [], ?string $idempotencyKey = null): EconomicResponse
     {
+
+        $headers = $this->getHeaders();
+
+        if(!empty($idempotencyKey)) {
+            $headers['Idempotency-Key'] = $idempotencyKey;
+        }
+
         $response = wp_remote_request($url, [
             'user-agent' => get_bloginfo(),
-            'headers' => $this->getHeaders(),
+            'headers' => $headers,
             'body' => json_encode($body),
             'method' => 'PUT',
         ]);
