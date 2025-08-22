@@ -22,7 +22,7 @@
     ],
     "require": {
         "php": "^8.1",
-        "morningtrain/economic": "^0.7"
+        "morningtrain/economic": "^1.2.0"
     },
     "require-dev": {
         "pestphp/pest": "^2.15",
