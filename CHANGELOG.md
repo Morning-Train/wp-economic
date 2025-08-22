@@ -2,6 +2,15 @@
 
 All notable changes to `morning-trian/wp-e-conomic` will be documented in this file.
 
+## v1.2.0 - 2025-08-22
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.2.0 by @dependabot[bot] in https://github.com/Morning-Train/wp-economic/pull/13
+* Feature/upgrade to v1.2.0 by @mschadegg in https://github.com/Morning-Train/wp-economic/pull/14
+
+**Full Changelog**: https://github.com/Morning-Train/wp-economic/compare/v0.7.1...v1.2.0
+
 ## v0.7.1 - 2024-05-17
 
 ### What's Changed
