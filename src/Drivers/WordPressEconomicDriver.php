@@ -111,7 +111,7 @@ class WordPressEconomicDriver implements EconomicDriver
         }
 
         $response = wp_remote_request($url, [
-            'user-agent' => get_bloginfo(),
+            'user-agent' => sanitize_title(get_bloginfo()),
             'headers' => $headers,
             'body' => json_encode($body),
             'method' => 'PUT',
