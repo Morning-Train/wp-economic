@@ -63,7 +63,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $headers = $this->getHeaders();
 
-        if(!empty($idempotencyKey)) {
+        if (! empty($idempotencyKey)) {
             $headers['Idempotency-Key'] = $idempotencyKey;
         }
 
@@ -106,7 +106,7 @@ class WordPressEconomicDriver implements EconomicDriver
 
         $headers = $this->getHeaders();
 
-        if(!empty($idempotencyKey)) {
+        if (! empty($idempotencyKey)) {
             $headers['Idempotency-Key'] = $idempotencyKey;
         }
 
