@@ -25,7 +25,7 @@
         "morningtrain/economic": "^1.2.0"
     },
     "require-dev": {
-        "pestphp/pest": "^2.15",
+        "pestphp/pest": "^4.4",
         "laravel/pint": "^1.0",
         "spatie/ray": "^1.28"
     },
